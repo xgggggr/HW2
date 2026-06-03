@@ -3,7 +3,7 @@ import Ingredient
 
 class Recipe:
     def __init__(self, title, ingredients):
-        self._title = title
+        self.title = title
         self._ingredients = list(ingredients)
     def add_ingredient(self, ingredient: Ingredient.Ingredient):
         t = 0
@@ -23,12 +23,12 @@ class Recipe:
     def scale(self, ratio: float):
         new_ingredients = []
         for i in self._ingredients:
-            new_ingredients.append(Ingredient.Ingredient(i._name, i.quantity * ratio, i._unit ))
-        return Recipe(self._title, new_ingredients)
+            new_ingredients.append(Ingredient.Ingredient(i.name, i.quantity * ratio, i.unit))
+        return Recipe(self.title, new_ingredients)
     def __len__(self):
         return len(self._ingredients)
     def __str__(self):
-        s = f"{self._title} RECIPE:\n"
+        s = f"{self.title} RECIPE:\n"
         for i in self._ingredients:
             s += str(i) + "\n"
         return s

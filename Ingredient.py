@@ -1,9 +1,9 @@
 
 class Ingredient:
     def __init__(self, name, quantity, unit):
-        self._name = name
+        self.name = name
         self.quantity = quantity
-        self._unit = unit
+        self.unit = unit
     @property
     def quantity(self):
         return self._quantity
@@ -14,11 +14,11 @@ class Ingredient:
         else:
             raise ValueError('Количество должно быть положительным')
     def __str__(self):
-        return f"{self._name}: {self._quantity} {self._unit}"
+        return f"{self.name}: {self._quantity} {self.unit}"
     def __repr__(self):
-        return f"Ingredient('{self._name}', {self._quantity}, '{self._unit}')"
+        return f"Ingredient('{self.name}', {self._quantity}, '{self.unit}')"
     def __eq__(self, other):
         if isinstance(other, Ingredient):
-            return self._name == other._name and self._unit == other._unit
+            return self.name == other.name and self.unit == other.unit
         else:
             return False
